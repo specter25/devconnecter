@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Landing from './components/layout/Landing'
 import CreateProfile from './components/layout/profile-forms/create-profile'
+import Profiles from './components/profiles/profiles'
+import Profile from './components/profile/Profile'
 import AddExperience from './components/layout/profile-forms/AddExperience'
 import AddEducation from './components/layout/profile-forms/AddEducation'
 import EditProfile from './components/layout/profile-forms/EditProfile'
@@ -42,6 +44,8 @@ function App() {
             <PrivateRoute exact path='/edit-profile' component={EditProfile} />
             <PrivateRoute exact path='/add-experience' component={AddExperience} />
             <PrivateRoute exact path='/add-education' component={AddEducation} />
+            <Route exact path='/profiles' component={Profiles} />
+            <Route exact path='/profile/:id' component={Profile} />
           </Switch>
         </section>
       </div>
