@@ -63,7 +63,7 @@ router.post(
       jwt.sign(payload, config.get('jwtToken'), { expiresIn: 360000 }, (err, token) => {
         if (err) throw err;
         else {
-          res.header('x-auth', token).json({ token });
+          res.json({ token });
         }
       }); //generally kept 3600 ie 1hr but as now testing it is kept more change it before deployment
 

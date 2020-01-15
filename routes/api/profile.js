@@ -8,6 +8,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const User = require('../../models/usermodel');
+const Post = require('../../models/postmodel');
 const request = require('request');
 
 
@@ -69,7 +70,7 @@ router.post('/', [auth, [
     profileFields.githubusername = githubusername;
   if (skills) {
     //we have to convert the skills into an array and trim any spaces for each element in that array
-    profileFields.skills = skills.split(',').map(skills => skills.trim());// , is the delimeter
+    profileFields.skills = await skills.split(',').map(skills => skills.trim());// , is the delimeter
   }
   //Build social array 
   profileFields.social = {};
@@ -155,7 +156,7 @@ router.get('/user/:user_id', async (req, res) => {
 router.delete('/', auth, async (req, res) => {
   try {
     //@ todo -remove users posts
-
+    await Post.deleteMany({ user: req.user.id });
 
     //remove profile
     await Profile.findOneAndRemove({ user: req.user.id });
