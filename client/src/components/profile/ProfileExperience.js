@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 import Moment from 'react-moment'
 
 const ProfileExperience = ({ experience: { company, title, location, to, from, description } }) => {

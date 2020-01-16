@@ -5,6 +5,8 @@ import Navbar from './components/layout/Navbar'
 import Landing from './components/layout/Landing'
 import CreateProfile from './components/layout/profile-forms/create-profile'
 import Profiles from './components/profiles/profiles'
+import Posts from './components/Posts/Posts'
+import Post from './components/Post/Post'
 import Profile from './components/profile/Profile'
 import AddExperience from './components/layout/profile-forms/AddExperience'
 import AddEducation from './components/layout/profile-forms/AddEducation'
@@ -45,6 +47,8 @@ function App() {
             <PrivateRoute exact path='/add-experience' component={AddExperience} />
             <PrivateRoute exact path='/add-education' component={AddEducation} />
             <Route exact path='/profiles' component={Profiles} />
+            <PrivateRoute exact path='/posts' component={Posts} />
+            <PrivateRoute exact path='/posts/:id' component={Post} />
             <Route exact path='/profile/:id' component={Profile} />
           </Switch>
         </section>

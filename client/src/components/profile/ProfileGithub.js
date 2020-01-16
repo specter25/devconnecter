@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import Spinner from '../layout/Spinner'
 import { getGithubRepos } from '../../actions/profileaction'
-import { Link } from 'react-router-dom'
+
 
 
 const ProfileGithub = ({ repos, getGithubRepos, username }) => {
@@ -10,7 +10,7 @@ const ProfileGithub = ({ repos, getGithubRepos, username }) => {
     useEffect(() => {
         getGithubRepos(username);
 
-    }, [getGithubRepos]);
+    }, [getGithubRepos, username]);
 
     return (
         <div class="profile-github">
